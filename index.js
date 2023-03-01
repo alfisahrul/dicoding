@@ -8,4 +8,5 @@ const currency = new Map([
 ]);
 
 const priceInIDR = priceInJPY*currency.get("JPY");
-console.log (priceInJPY);
+console.log (priceInJPY)
+
