@@ -1,0 +1,41 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class NetworkError extends Error {
+        constructor(message) {
+          super(message);
+          this.name = "NetworkError";
+        }
+      }
+
+      // TODO: 1
+      const fetchingUserFromInternet = (callback, isOffline) => {
+        setTimeout(() => {
+          if (isOffline) {
+            callback(
+              new NetworkError("Gagal mendapatkan data dari internet"),
+              null
+            );
+          }
+          callback(null, { name: "John", age: 18 });
+        }, 500);
+      };
+
+      // TODO: 2
+      const gettingUserName = () => {
+        fetchingUserFromInternet((error, user) => {
+          if (error) {
+            return error.message;
+          }
+          return user.name;
+        }, false);
+      };
+    </script>
+  </body>
+</html>
