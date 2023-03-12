@@ -1,0 +1,3 @@
+# dicoding
+
+learning javascript project
